@@ -1,0 +1,13 @@
+CREATE DATABASE termometro;
+USE termometro;
+CREATE TABLE config (
+    cod INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    min DECIMAL(3,1),
+    max DECIMAL(3,1)
+);
+INSERT INTO config (cod, min, max) VALUES (NULL, 22.10, 38.80);
+CREATE TABLE leituras (
+    cod INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP,
+    temp DECIMAL(3,1) NOT NULL
+);
