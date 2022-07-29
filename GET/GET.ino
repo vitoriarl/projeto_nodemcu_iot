@@ -15,15 +15,15 @@ WiFiClient client; // cliente responsável pela conexao
 CTBot myBot;
 
 //Declaracao das variaveis
-const char* ssid = "MiMi"; 
-const char* senha = "113126virus";
-char servidor[] = "http://192.168.88.229/vitoria/enviatemp.php";
-String BOT_TOKEN = "2099943113:AAFIjD92tu3qia0v9wEQcQ2wt5xnEpMsy_w"; // token do telegram
-const int CHAT_ID = 789976451; // id do telegram
+const char* ssid = ""; 
+const char* senha = "";
+char servidor[] = "http://xxx.xxx.xx.xxx/enviatemp.php";
+String BOT_TOKEN = ""; // token do telegram
+const int CHAT_ID = 0000; // id do telegram
 #define SMTP_HOST "smtp.gmail.com"
 #define SMTP_PORT 465
-#define AUTHOR_EMAIL "nodemcu.alertatemp@gmail.com"
-#define AUTHOR_PASSWORD "263111vivi"
+#define AUTHOR_EMAIL "xxx@gmail.com"
+#define AUTHOR_PASSWORD "xxxx"
 SMTPSession smtp;
 ESP_Mail_Session session;
 SMTP_Message message;
@@ -68,7 +68,7 @@ void setup()
   message.sender.name = "NodeMCUESP8266";
   message.sender.email = AUTHOR_EMAIL;
   message.subject = "Alerta de Temperatura";
-  message.addRecipient("Remetente", "vitoriarleonardo@gmail.com");
+  message.addRecipient("Remetente", "xxxxx@gmail.com");
   message.text.charSet = "us-ascii";
   message.text.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
   message.priority = esp_mail_smtp_priority::esp_mail_smtp_priority_high;
@@ -136,7 +136,7 @@ void setTextMsg() {
 }
 
 void enviaTextMsg() {
-  message.addHeader("Message-ID: <vitoriarleonardo@gmail.com>");
+  message.addHeader("Message-ID: <xxxxx@gmail.com>");
   if (!smtp.connect(&session)) return;
   if (!MailClient.sendMail(&smtp, &message)) Serial.println("Erro ao enviar e-mail, " + smtp.errorReason());
 }
